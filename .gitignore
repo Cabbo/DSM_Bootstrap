@@ -4,6 +4,7 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 ./*/node_modules
 ./react_app
+./react_ejercicio_clase
 
 ##./react_ejercicio_1/public
 
