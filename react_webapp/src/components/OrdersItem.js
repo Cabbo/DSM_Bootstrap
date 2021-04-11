@@ -39,7 +39,7 @@ class OrdersItem extends React.Component {
                             <b style={{ textTransform: "capitalize" }}>
                                 {this.props.index}. -{" "}
                                 Order ID {this.props.idb}{" "}
-                                <span className="badge badge-primary">€ {this.props.totalPrice}</span>{" "}
+                                <span className="badge badge-primary">€ {this.props.totalPrice.toFixed(2)}</span>{" "}
                                 <small className="badge badge-info">{` ${this.props.n} products`}</small>
                             </b>
                             <div>{"Date: "+date.toDateString()+" Time: "+ date.toTimeString()}</div>
