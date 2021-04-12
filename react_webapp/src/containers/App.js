@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Switch, Route, Link, BrowserRouter as Router } from "react-router-dom";
 import axios from 'axios';
-//import jwt_decode from 'jwt-decode';
 
 import Cart from './../components/Cart';
 import Login from './../components/Login';
@@ -17,7 +16,6 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // user: null,
       cart: {},
       products: [],
       showMenu: true,
@@ -29,10 +27,6 @@ export default class App extends Component {
 
   async componentDidMount() {
     console.log('<App> mounted');
-    // let user = localStorage.getItem("user");
-    // user = user ? JSON.parse(user) : null;
-    // this.setState({user: user });
-
     //get productlist from firebase database
     const products = await axios.get('https://dsm-test-6ee3d-default-rtdb.europe-west1.firebasedatabase.app/products.json');
     this.setState({products: products.data });
@@ -69,7 +63,6 @@ export default class App extends Component {
     } else {
       cart[cartItem.id] = cartItem;
     }
-    //localStorage.setItem("cart", JSON.stringify(cart));
     this.setState({ cart });
   };
 
@@ -80,13 +73,11 @@ export default class App extends Component {
     } else if (cart[cartItem.id] && cart[cartItem.id].amount === 1) {
       delete cart[cartItem.id];
     }
-    //localStorage.setItem("cart", JSON.stringify(cart));
     this.setState({ cart });
   };
 
   clearCart = () => {
     let cart = {};
-    //localStorage.removeItem("cart");
     this.setState({ cart });
   };
 
@@ -189,13 +180,13 @@ export default class App extends Component {
               </div>
               <div className={`navbar-nav justify-content-end  h5  !${this.state.showMenu ? "collapse navbar-collapse" : ""
                 }`} >
-                <Link to="/products" className="navbar-item mr-5">
+                <Link to="/products" className="navbar-item nav-link mr-5">
                   Products
                 </Link>
-                <Link to="/orders" className="navbar-item mr-5">
+                <Link to="/orders" className="navbar-item nav-link mr-5">
                   Orders
                 </Link>
-                <Link to="/cart" className="navbar-item mr-5">
+                <Link to="/cart" className="navbar-item  mr-5">
                   <span className="badge badge-light">
                     Cart {" "}
                     <span className="badge badge-primary mr-2 ms-2">
@@ -209,7 +200,7 @@ export default class App extends Component {
                   </span>
                 </Link>
                 {!this.state.auth ? (
-                  <Link to="/login" className="navbar-item mr-5">
+                  <Link to="/login" className="navbar-item nav-link mr-5">
                     Login
                   </Link>
                 ) : (
