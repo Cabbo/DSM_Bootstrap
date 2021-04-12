@@ -19,7 +19,7 @@ const ProductItem = props => {
                     <div className="media-body align-self-center">
                         <b style={{ textTransform: "capitalize" }}>
                             {product.name}{" "}
-                            <span className="tag is-primary">€{product.price}</span>
+                            <span className="badge badge-primary">€ {product.price}</span>{" "}
                         </b>
                         <div>{product.shortDesc}</div>
                         <div className="is-clearfix">
